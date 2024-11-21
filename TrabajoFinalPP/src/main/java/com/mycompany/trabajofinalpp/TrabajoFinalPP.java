@@ -11,7 +11,9 @@ package com.mycompany.trabajofinalpp;
 public class TrabajoFinalPP {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
+        Horno horno1= new Horno("horno1");
+        Cafetera cafetera= new Cafetera();
+        Repostero repostero1= new Repostero("repostero1", horno1, cafetera);
+        repostero1.start();
     }
 }
