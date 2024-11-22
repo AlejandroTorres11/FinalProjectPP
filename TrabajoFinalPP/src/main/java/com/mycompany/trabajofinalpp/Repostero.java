@@ -40,15 +40,18 @@ public class Repostero extends Thread{
             numeroDeTandas=0;
             //trabajando
             while(!ultimaTanda){
-                int nGalletas=producirTandaGalletas();
-                horno.depositarGalletas(nGalletas);
-                System.out.println(idRepostero + " Deposita "+ nGalletas+ " En " + horno.getIdHorno());
-                if(numeroDeTandas>=3){ 
-                    ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
-                } 
-                if(numeroDeTandas>=5){
-                    ultimaTanda=true; //si hasta ahora no ha sido la ultima, ahora lo será
+                if(!horno.isLleno()){ //si el horno no esta lleno
+                    int nGalletas=producirTandaGalletas();
+                    horno.depositarGalletas(nGalletas);
+                    System.out.println(idRepostero + " Deposita "+ nGalletas+ " En " + horno.getIdHorno());
+                    if(numeroDeTandas>=3){ 
+                        ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
+                    } 
+                    if(numeroDeTandas>=5){
+                        ultimaTanda=true; //si hasta ahora no ha sido la ultima, ahora lo será
+                    }
                 }
+                
             }
             //hacer Café
             cafetera.empezarCafe();
