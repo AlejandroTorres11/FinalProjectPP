@@ -36,7 +36,7 @@ public class Horno extends Thread{
             else{
                 nGalletasCrudasDentro += nGalletas;
             }
-            System.out.println("Se han depositado " + nGalletas + " galletas en el horno. Total: " + nGalletasCrudasDentro + "\n            Se han desperdiciado --> "+ nGalletasDesperdiciadas +" galletas");
+            System.out.println("Se han depositado " + nGalletas + " galletas en el "+idHorno+". Total: " + nGalletasCrudasDentro + "\n            Se han desperdiciado --> "+ nGalletasDesperdiciadas +" galletas");
 
         } catch (InterruptedException ie) {
             ie.printStackTrace(); 

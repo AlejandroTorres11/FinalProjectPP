@@ -4,6 +4,8 @@
  */
 package com.mycompany.trabajofinalpp;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -13,16 +15,19 @@ import java.util.Random;
 public class Repostero extends Thread{
     private String idRepostero; //si se pone id resulta en un error
     private int numeroDeTandas;
-    private Horno horno;
+    private List<Horno> hornosVacios ;
+    private List<Horno> hornosLlenos ;
+
     private Cafetera cafetera;
     
     private Random random = new Random();
     
-    public Repostero(String idRepostero, Horno horno,Cafetera cafetera) {
+    public Repostero(String idRepostero, List<Horno> hornosVacios, List<Horno> hornosLlenos, Cafetera cafetera) {
         this.idRepostero = idRepostero;
-        this.horno = horno;
-        this.numeroDeTandas=0;
-        this.cafetera= cafetera;
+        this.hornosVacios = hornosVacios; 
+        this.hornosLlenos = hornosLlenos; 
+        this.numeroDeTandas = 0;
+        this.cafetera = cafetera;
     }
     
    public int producirTandaGalletas() throws InterruptedException{ //produce las tandas de galletas con numero aleatorio
@@ -30,6 +35,15 @@ public class Repostero extends Thread{
        int numeroAleatorio = 37 + random.nextInt(45 - 37 + 1);
        numeroDeTandas++;
        return numeroAleatorio;
+   }
+   public Horno buscarHorno(){
+       Horno resultado = null;
+       for(Horno h:hornosVacios){
+           if(!h.isLleno()){
+               resultado=h;
+           }
+       }
+       return resultado;
    }
    
     @Override
@@ -40,10 +54,16 @@ public class Repostero extends Thread{
             numeroDeTandas=0;
             //trabajando
             while(!ultimaTanda){
+                Horno horno= buscarHorno();
                 if(!horno.isLleno()){ //si el horno no esta lleno
                     int nGalletas=producirTandaGalletas();
                     horno.depositarGalletas(nGalletas);
                     System.out.println(idRepostero + " Deposita "+ nGalletas+ " En " + horno.getIdHorno());
+                    
+                    if(horno.isLleno()){
+                       hornosVacios.remove(horno);
+                       hornosLlenos.add(horno);
+                    }
                     if(numeroDeTandas>=3){ 
                         ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
                     } 
