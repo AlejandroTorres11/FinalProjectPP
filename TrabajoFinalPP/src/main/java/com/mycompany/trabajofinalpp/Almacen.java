@@ -16,9 +16,9 @@ public class Almacen {
     private boolean lleno;
     Semaphore semaforo= new Semaphore(1);
 
-    public Almacen(int capacidad, int nGalletasDentro) {
+    public Almacen(int capacidad) {
         this.capacidad = capacidad;
-        this.nGalletasDentro = nGalletasDentro;
+        this.nGalletasDentro = 0;
         this.lleno=false;
     }
     public void introducirPaquete(){

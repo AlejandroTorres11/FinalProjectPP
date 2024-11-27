@@ -1,5 +1,7 @@
 package com.mycompany.trabajofinalpp;
 
+import java.time.Duration;
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -13,8 +15,9 @@ public class Horno extends Thread{
     private int nGalletasCocinadasDentro;
     private boolean lleno;
     private boolean sinGalletasHechas;
-    Semaphore semaforoCrudas= new Semaphore(1);
-    Semaphore semaforoCocinadas= new Semaphore(1);
+    private Semaphore semaforoCrudas= new Semaphore(1);
+    private Semaphore semaforoCocinadas= new Semaphore(1);
+    private Random random= new Random();
     
     public Horno(String idHorno,int capacidad) {
         this.idHorno = idHorno;
@@ -57,11 +60,12 @@ public class Horno extends Thread{
             semaforoCrudas.release();
         }
     }
-    public void extraerGalletas(){
+    public int extraerGalletas(){
         try{
             semaforoCocinadas.acquire();
             if(nGalletasCocinadasDentro-20>=0){
                 nGalletasCocinadasDentro-=20;
+                sleep(500 + random.nextInt(500));
             }
             if(nGalletasCocinadasDentro==0){
                 sinGalletasHechas=true;
@@ -71,6 +75,7 @@ public class Horno extends Thread{
         }finally{
             semaforoCocinadas.release();
         }
+        return 20;
     }
     public void run(){
         while(true){
