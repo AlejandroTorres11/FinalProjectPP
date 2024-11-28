@@ -22,6 +22,7 @@ public class Repostero extends Thread{
     
     private Random random = new Random();
     
+  
     public Repostero(String idRepostero, List<Horno> hornosVacios, List<Horno> hornosLlenos, Cafetera cafetera) {
         this.idRepostero = idRepostero;
         this.hornosVacios = hornosVacios; 

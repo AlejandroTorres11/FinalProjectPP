@@ -17,7 +17,7 @@ public class Empaquetador extends Thread {
     private Horno horno;
     private Almacen almacen;
     private int nGalletasEncima;
-
+ 
     public Empaquetador(String idEmpaquetador, List<Horno> hornosVacios, List<Horno> hornosLlenos, Horno horno, Almacen almacen) {
         this.idEmpaquetador = idEmpaquetador; // idEmpaquetador es ahora un String
         this.hornosVacios = hornosVacios;
