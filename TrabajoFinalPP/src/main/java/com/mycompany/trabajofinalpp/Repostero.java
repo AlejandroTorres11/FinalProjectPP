@@ -15,8 +15,7 @@ import java.util.Random;
 public class Repostero extends Thread{
     private String idRepostero; //si se pone id resulta en un error
     private int numeroDeTandas;
-    private List<Horno> hornosVacios ;
-    private List<Horno> hornosLlenos ;
+    private List<Horno> listaHornos;
     private boolean esperaCafe;
     private String estado;
 
@@ -24,10 +23,9 @@ public class Repostero extends Thread{
     private Random random = new Random();
     
   
-    public Repostero(String idRepostero, List<Horno> hornosVacios, List<Horno> hornosLlenos, Cafetera cafetera) {
+    public Repostero(String idRepostero, List<Horno> listaHornos, Cafetera cafetera) {
         this.idRepostero = idRepostero;
-        this.hornosVacios = hornosVacios; 
-        this.hornosLlenos = hornosLlenos; 
+        this.listaHornos=listaHornos;
         this.numeroDeTandas = 0;
         this.cafetera = cafetera;
         this.esperaCafe=false;
@@ -42,8 +40,8 @@ public class Repostero extends Thread{
    }
    public Horno buscarHorno(){
        Horno resultado = null;
-       for(Horno h:hornosVacios){
-           if(!h.isLleno()){
+       for(Horno h:listaHornos){
+           if(h.isListoParaDepositar()){
                resultado=h;
            }
        }
@@ -58,34 +56,28 @@ public class Repostero extends Thread{
             numeroDeTandas=0;
             //trabajando
             while(!ultimaTanda){
-                estado="produciendo"+ "("+numeroDeTandas+"/"+5+")";
-                Horno horno= buscarHorno();
-                if(!horno.isLleno()){ //si el horno no esta lleno
-                    int nGalletas=producirTandaGalletas();
-                    horno.depositarGalletas(nGalletas);
-                    System.out.println(idRepostero + " Deposita "+ nGalletas+ " En " + horno.getIdHorno());
-                    
-                    if(horno.isLleno()){
-                       hornosVacios.remove(horno);
-                       hornosLlenos.add(horno);
+                estado="produciendo"+ "("+numeroDeTandas+"/"+5+")"; 
+                    Horno horno= buscarHorno();
+                    if(horno!=null && horno.isListoParaDepositar()){ //si el horno no esta lleno
+                        int nGalletas=producirTandaGalletas();
+                        horno.depositarGalletas(nGalletas,this);
+                        
+                        if(numeroDeTandas>=3){ 
+                            ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
+                        } 
+                        if(numeroDeTandas>=5){
+                            ultimaTanda=true; //si hasta ahora no ha sido la ultima, ahora lo será
+                        }
                     }
-                    if(numeroDeTandas>=3){ 
-                        ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
-                    } 
-                    if(numeroDeTandas>=5){
-                        ultimaTanda=true; //si hasta ahora no ha sido la ultima, ahora lo será
-                    }
-                }
-                
             }
             //hacer Café
             esperaCafe=true; //para saber cuando un repostero quiere hacer una pausa para café, sirve para saber si estan esperando para café o no
             estado="pausa para el café";
             cafetera.empezarCafe(this);
-            System.out.println(idRepostero + " empieza a hacer café ");
+            System.out.println(idRepostero + " empieza a hacer cafe ");
             sleep(2000);
             cafetera.terminarCafe();
-            System.out.println(idRepostero + " termina de hacer café ");
+            System.out.println(idRepostero + " termina de hacer cafe ");
             esperaCafe=false; //deja de esperar al café
             //descansar
             estado="descanso";

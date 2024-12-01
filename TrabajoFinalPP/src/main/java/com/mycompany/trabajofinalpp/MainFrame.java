@@ -72,6 +72,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
    public void update(){
        updateCafetera();
        updateReposteros();
+       updateHornos();
    }
    public void updateCafetera() {
         try {
@@ -100,11 +101,19 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
     public void updateReposteros(){
         JTextField[] reposteroTextFields ={ r1estadotxt, r2estadotxt, r3estadotxt, r4estadotxt, r5estadotxt };
        for (int i = 0; i < listaReposteros.size(); i++) {
-        Repostero r = listaReposteros.get(i);
-        if (i < reposteroTextFields.length) { // Asegurarse de no exceder el número de JTextField
-            reposteroTextFields[i].setText(r.getEstado()); // Asigna el estado al JTextField correspondiente
+            Repostero r = listaReposteros.get(i);
+            if (i < reposteroTextFields.length) { // Asegurarse de no exceder el número de JTextField
+                reposteroTextFields[i].setText(r.getEstado()); // Asigna el estado al JTextField correspondiente
+            }
         }
     }
+    public void updateHornos(){
+        JTextField[] nGalletasTextFields ={ h1nGalletastxt,h2nGalletastxt,h3nGalletastxt };
+        for (int i = 0; i < listaHornos.size(); i++) {
+            Horno h= listaHornos.get(i);
+            String texto="";
+            nGalletasTextFields[i].setText(texto+ h.getnGalletasDentro());
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.

@@ -21,7 +21,7 @@ public class Almacen {
         this.nGalletasDentro = 0;
         this.lleno=false;
     }
-    public void introducirPaquete(){
+    public void introducirPaquete(Empaquetador empaquetador){
         try {
             semaforo.acquire();
             if(!lleno){
@@ -30,7 +30,7 @@ public class Almacen {
             if(nGalletasDentro==capacidad){
                 lleno=true;
             }
-            System.out.println("Se ha depositado un paquete en el Almacén. Total: " + nGalletasDentro);
+            System.out.println(empaquetador.getIdEmpaquetador() +" ha depositado un paquete en el Almacen --> Total: " + nGalletasDentro);
 
         } catch (InterruptedException ie) {
             ie.printStackTrace(); 

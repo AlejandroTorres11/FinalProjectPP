@@ -12,32 +12,31 @@ import java.util.List;
  */
 public class Empaquetador extends Thread {
     private String idEmpaquetador; // Cambiado de int a String
-    private List<Horno> hornosVacios;
-    private List<Horno> hornosLlenos;
+    private List<Horno> listaHornos;
     private Horno horno;
     private Almacen almacen;
     private int nGalletasEncima;
  
-    public Empaquetador(String idEmpaquetador, List<Horno> hornosVacios, List<Horno> hornosLlenos, Horno horno, Almacen almacen) {
+    public Empaquetador(String idEmpaquetador, Horno horno, Almacen almacen) {
         this.idEmpaquetador = idEmpaquetador; // idEmpaquetador es ahora un String
-        this.hornosVacios = hornosVacios;
-        this.hornosLlenos = hornosLlenos;
         this.horno = horno;
         this.almacen = almacen;
         this.nGalletasEncima = 0;
     }
 
+    @Override
     public void run() {
         // Implementación del método run
         while(true){
+            
             try {
-                while(nGalletasEncima<100){
-                    if(horno.isLleno()){
-                        nGalletasEncima+= horno.extraerGalletas();
+                while(nGalletasEncima<100){ 
+                    if(horno.isListoParaEmpaquetar()){
+                        nGalletasEncima+= horno.extraerGalletas(this);
                     }
                 }
                 if(nGalletasEncima==100){
-                    almacen.introducirPaquete();
+                    almacen.introducirPaquete(this);
                     System.out.println(idEmpaquetador +" ha enviado paquete a almacén");
                     nGalletasEncima=0;
                 }

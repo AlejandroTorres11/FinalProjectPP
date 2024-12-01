@@ -18,7 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        /*
         List<Horno> hornosVacios = Collections.synchronizedList(new LinkedList<>());
         List<Horno> hornosLlenos = Collections.synchronizedList(new LinkedList<>());
         List<Horno> listaHornos= Collections.synchronizedList(new LinkedList<>());
@@ -36,6 +36,28 @@ public class Main {
         Cafetera cafetera= new Cafetera();
         for (int i = 0; i < 5; i++) {
             Repostero repostero= new Repostero("repostero"+(i+1), hornosVacios,hornosLlenos, cafetera);
+            listaReposteros.add(repostero);
+        }
+        MainFrame mainFrame= new MainFrame(almacen, cafetera, listaHornos, listaReposteros, listaEmpaquetadores);
+        mainFrame.setVisible(true);
+        Thread hiloMainFrameThread= new Thread(mainFrame);
+        hiloMainFrameThread.start();
+        */
+        // TODO code application logic here
+        List<Horno> listaHornos= Collections.synchronizedList(new LinkedList<>());
+        List<Repostero> listaReposteros= Collections.synchronizedList(new LinkedList<>());
+        List<Empaquetador> listaEmpaquetadores= Collections.synchronizedList(new LinkedList<>());
+        
+        Almacen almacen= new Almacen(1000);
+        for (int i = 0; i < 1; i++) {
+            Horno horno= new Horno("horno"+(i+1), 200);
+            Empaquetador empaquetador= new Empaquetador("empaquetador"+(i+1), horno, almacen);
+            listaHornos.add(horno);
+            listaEmpaquetadores.add(empaquetador);
+        }
+        Cafetera cafetera= new Cafetera();
+        for (int i = 0; i < 2; i++) {
+            Repostero repostero= new Repostero("repostero"+(i+1), listaHornos, cafetera);
             listaReposteros.add(repostero);
         }
         MainFrame mainFrame= new MainFrame(almacen, cafetera, listaHornos, listaReposteros, listaEmpaquetadores);
