@@ -17,9 +17,10 @@ public class Repostero extends Thread{
     private int numeroDeTandas;
     private List<Horno> hornosVacios ;
     private List<Horno> hornosLlenos ;
+    private boolean esperaCafe;
+    private String estado;
 
     private Cafetera cafetera;
-    
     private Random random = new Random();
     
   
@@ -29,6 +30,8 @@ public class Repostero extends Thread{
         this.hornosLlenos = hornosLlenos; 
         this.numeroDeTandas = 0;
         this.cafetera = cafetera;
+        this.esperaCafe=false;
+        this.estado="inactivo";
     }
     
    public int producirTandaGalletas() throws InterruptedException{ //produce las tandas de galletas con numero aleatorio
@@ -55,6 +58,7 @@ public class Repostero extends Thread{
             numeroDeTandas=0;
             //trabajando
             while(!ultimaTanda){
+                estado="produciendo"+ "("+numeroDeTandas+"/"+5+")";
                 Horno horno= buscarHorno();
                 if(!horno.isLleno()){ //si el horno no esta lleno
                     int nGalletas=producirTandaGalletas();
@@ -75,12 +79,16 @@ public class Repostero extends Thread{
                 
             }
             //hacer Café
-            cafetera.empezarCafe();
+            esperaCafe=true; //para saber cuando un repostero quiere hacer una pausa para café, sirve para saber si estan esperando para café o no
+            estado="pausa para el café";
+            cafetera.empezarCafe(this);
             System.out.println(idRepostero + " empieza a hacer café ");
             sleep(2000);
             cafetera.terminarCafe();
             System.out.println(idRepostero + " termina de hacer café ");
+            esperaCafe=false; //deja de esperar al café
             //descansar
+            estado="descanso";
             System.out.println(idRepostero + " empieza a descansar ");
             sleep(3000 + random.nextInt(3000));
             System.out.println(idRepostero + " termina de descansar ");
@@ -106,6 +114,22 @@ public class Repostero extends Thread{
 
     public void setRandom(Random random) {
         this.random = random;
+    }
+
+    public boolean isEsperaCafe() {
+        return esperaCafe;
+    }
+
+    public void setEsperaCafe(boolean pausa) {
+        this.esperaCafe = pausa;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
    
 }

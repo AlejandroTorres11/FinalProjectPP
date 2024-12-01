@@ -70,8 +70,42 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
     }
     
    public void update(){
-       
+       updateCafetera();
+       updateReposteros();
    }
+   public void updateCafetera() {
+        try {
+            // Verificar si la cafetera no tiene un repostero actual
+            if (cafetera.getReposteroActual() == null) {
+                cReposteroUsandotxt.setText(""); // Campo vacío si no hay repostero
+            } else {
+                // Obtener el ID del repostero actual si existe
+                String reposteroActual = cafetera.getReposteroActual().getIdRepostero();
+                cReposteroUsandotxt.setText(reposteroActual); // Actualizar con el ID del repostero
+            }
+
+            // Construir la cola de reposteros esperando
+            String cola = "";
+            String delimitador = "";
+            for (Repostero r : listaReposteros) {
+                if (r.getIdRepostero() != cafetera.getReposteroActual().getIdRepostero() && r.isEsperaCafe()) {
+                    cola += delimitador + " " + r.getIdRepostero();
+                    delimitador = ",";
+                }
+            }
+            cReposterosColatxt.setText(cola);
+
+        } catch (Exception e) {}
+    }
+    public void updateReposteros(){
+        JTextField[] reposteroTextFields ={ r1estadotxt, r2estadotxt, r3estadotxt, r4estadotxt, r5estadotxt };
+       for (int i = 0; i < listaReposteros.size(); i++) {
+        Repostero r = listaReposteros.get(i);
+        if (i < reposteroTextFields.length) { // Asegurarse de no exceder el número de JTextField
+            reposteroTextFields[i].setText(r.getEstado()); // Asigna el estado al JTextField correspondiente
+        }
+    }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -462,8 +496,10 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
 
     @Override
     public void run() {
+        System.out.println("--------------------------------COMIENZA EL RUNEO-------------------------------------");
         while (true) {
             try {
+                update();
                 Thread.sleep(100); // Pausa para evitar saturar la memoria
             } catch (InterruptedException e) {
                 e.printStackTrace();

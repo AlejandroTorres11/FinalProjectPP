@@ -12,14 +12,16 @@ import java.util.concurrent.Semaphore;
  * @author aleja
  */
 public class Cafetera {
-    Semaphore semaforo= new Semaphore(1);
+    private Repostero reposteroActual;
+    private Semaphore semaforo= new Semaphore(1);
     
     public Cafetera() {
     }
     
-    public void empezarCafe(){
+    public void empezarCafe(Repostero repostero){
         try{
             semaforo.acquire();
+            reposteroActual=repostero;
         }catch (InterruptedException ie) {
             ie.printStackTrace();
         }
@@ -28,8 +30,15 @@ public class Cafetera {
     public void terminarCafe(){
         try{
             semaforo.release();
+            reposteroActual=null;
+            
         }catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public Repostero getReposteroActual() {
+        return reposteroActual;
+    }
+    
 }
