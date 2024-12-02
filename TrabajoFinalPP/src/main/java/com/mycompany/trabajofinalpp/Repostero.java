@@ -62,7 +62,7 @@ public class Repostero extends Thread{
                         int nGalletas=producirTandaGalletas();
                         horno.depositarGalletas(nGalletas,this);
                         
-                        if(numeroDeTandas>=3){ 
+                        if(numeroDeTandas>=3 ){ 
                             ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
                         } 
                         if(numeroDeTandas>=5){

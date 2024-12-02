@@ -37,7 +37,6 @@ public class Empaquetador extends Thread {
                 }
                 if(nGalletasEncima==100){
                     almacen.introducirPaquete(this);
-                    System.out.println(idEmpaquetador +" ha enviado paquete a almacén");
                     nGalletasEncima=0;
                 }
             } catch (Exception e) {

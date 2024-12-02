@@ -19,6 +19,7 @@ public class Horno extends Thread {
     private Random random = new Random();
     //UI
     private String estado;
+    private int progresoHorneado;
     
     public Horno(String idHorno, int capacidad) {
         this.idHorno = idHorno;
@@ -28,31 +29,38 @@ public class Horno extends Thread {
         this.listoParaEmpaquetar = false;
         this.listoParaDepositar=true;
         this.estado="inactivo";
+        this.progresoHorneado=0;
     }
 
     public void depositarGalletas(int nGalletas,Repostero repostero) {
         try {
-            semaforo.acquire();
-            int nGalletasDesperdiciadas = 0;
-            if(nGalletasDentro!=capacidad){
-                if (nGalletasDentro + nGalletas >= capacidad) {
-                 lleno = true;
-                 listoParaHornear=true;
-                 listoParaDepositar=false;
-                 nGalletasDesperdiciadas = (nGalletasDentro + nGalletas) - capacidad;
-                 nGalletasDentro = capacidad;
+            if(listoParaDepositar){
+                semaforo.acquire();
+                int nGalletasDesperdiciadas = 0;
+                if(nGalletasDentro!=capacidad){
+                    if (nGalletasDentro + nGalletas >= capacidad) {
+                     lleno = true;
+                     listoParaHornear=true;
+                     listoParaDepositar=false;
+                     nGalletasDesperdiciadas = (nGalletasDentro + nGalletas) - capacidad;
+                     nGalletasDentro = capacidad;
 
-                 System.out.println(repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
-                                ". Total: " + nGalletasDentro + "\n            Se han desperdiciado --> " +
-                                nGalletasDesperdiciadas + " galletas");
-                } else {
-                 nGalletasDentro += nGalletas;
+                     System.out.println(repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
+                                    ". Total: " + nGalletasDentro + "\n            Se han desperdiciado --> " +
+                                    nGalletasDesperdiciadas + " galletas");
+                    } else {
+                     nGalletasDentro += nGalletas;
 
-                  System.out.println(repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
-                                ". Total: " + nGalletasDentro );
+                      System.out.println(repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
+                                    ". Total: " + nGalletasDentro );
+                    }
+
                 }
-
             }
+            else{
+                System.out.println("---------------------"+idHorno+" NO LISTO, SERVICIO DENEGADO----------------------------------------------");
+            }
+            
         } catch (InterruptedException ie) {
             ie.printStackTrace();
         } finally {
@@ -63,11 +71,19 @@ public class Horno extends Thread {
     public void hornearGalletas() {
         try {
             semaforo.acquire();
-            estado="Horneando";
             listoParaDepositar=false;
+            estado="Horneando";
             System.out.println(idHorno + " Empieza a hornear");
-            sleep(8000);
+            int duracion=8000;
+            int pasos = 100;     // Número de actualizaciones de la barra
+            int duracionPaso = duracion / pasos; // Duración de cada paso
+
+            for (int i = 0; i <= pasos; i++) {
+                progresoHorneado=i;
+                Thread.sleep(duracionPaso);
+            }
             System.out.println(idHorno + " termina de hornear");
+            progresoHorneado=0;
             estado="inactivo";
             listoParaHornear=false;
             listoParaEmpaquetar = true;
@@ -81,6 +97,7 @@ public class Horno extends Thread {
     public int extraerGalletas(Empaquetador empaquetador) {
         try {
             semaforo.acquire();
+            listoParaDepositar=false;
             if (nGalletasDentro - 20 >= 0) {
                 nGalletasDentro -= 20;
                 sleep(500 + random.nextInt(500));
@@ -164,6 +181,14 @@ public class Horno extends Thread {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public int getProgresoHorneado() {
+        return progresoHorneado;
+    }
+
+    public void setProgresoHorneado(int progresoHorneado) {
+        this.progresoHorneado = progresoHorneado;
     }
     
     

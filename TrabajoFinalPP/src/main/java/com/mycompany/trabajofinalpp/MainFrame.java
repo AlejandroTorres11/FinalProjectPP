@@ -29,8 +29,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
     private List<Horno> listaHornos;
     private List<Repostero> listaReposteros;
     private List<Empaquetador> listaEmpaquetadores;
-    
-    
+   
     
     public MainFrame(Almacen almacen, Cafetera cafetera, List<Horno> listaHornos, List<Repostero> listaReposteros, List<Empaquetador> listaEmpaquetadores) {
         initComponents();
@@ -112,36 +111,37 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
             }
         }
     }
-    public void updateHornos(){
-        JTextField[] nGalletasTextFields ={ h1nGalletastxt,h2nGalletastxt,h3nGalletastxt };
-        JLabel[] hEstadoJLabels ={ h1estadotxt,h2estadotxt,h3estadotxt};
-        JProgressBar[]  hprogressBars={h1progressbar,h2progressbar,h3progressbar};
-        for (int i = 0; i < listaHornos.size(); i++) {
-            Horno h= listaHornos.get(i);
-            String texto="";
-            nGalletasTextFields[i].setText(texto+ h.getnGalletasDentro());
-            hEstadoJLabels[i].setText(h.getEstado());
-            if(h.getEstado()=="Horneando"){
-                barraDeHorneado(hprogressBars[i],8000);
-            }
-            
-        }
-    }
-    public void barraDeHorneado(JProgressBar progressBar,int duration){
-        int steps = 100;     // Número de actualizaciones de la barra
-        int stepDuration = duration / steps; // Duración de cada paso
+    public void updateHornos() {
+        JTextField[] nGalletasTextFields = {h1nGalletastxt, h2nGalletastxt, h3nGalletastxt};
+        JLabel[] hEstadoJLabels = {h1estadotxt, h2estadotxt, h3estadotxt};
+        JProgressBar[] hprogressBars = {h1progressbar, h2progressbar, h3progressbar};
+       
+        // Crear un ExecutorService con un número fijo de hilos (uno por horno)
+        ExecutorService executor = Executors.newFixedThreadPool(listaHornos.size());
 
-        for (int i = 0; i <= steps; i++) {
-            final int progress = i;
-            SwingUtilities.invokeLater(() -> progressBar.setValue(progress));
-            try {
-                Thread.sleep(stepDuration); 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        for (int i = 0; i < listaHornos.size(); i++) {
+            int index = i; // Necesario para usar en la lambda
+            executor.submit(() -> {
+                Horno h = listaHornos.get(index);
+                String texto = "";
+
+                SwingUtilities.invokeLater(() -> {
+                    nGalletasTextFields[index].setText(texto + h.getnGalletasDentro());
+                    hEstadoJLabels[index].setText(h.getEstado());
+                });
+
+                if ("Horneando".equals(h.getEstado())) {
+                    hprogressBars[index].setValue(h.getProgresoHorneado());
+                }
+                if(h.getEstado()=="inactivo"){
+                    hprogressBars[index].setValue(0);
+                }
+            });
         }
-        progressBar.setValue(0);
+        // Cerrar el ExecutorService cuando termine
+        executor.shutdown();
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
