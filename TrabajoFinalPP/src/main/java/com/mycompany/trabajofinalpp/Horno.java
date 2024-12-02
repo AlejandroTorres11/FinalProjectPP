@@ -9,13 +9,16 @@ public class Horno extends Thread {
     private String idHorno;
     private final int capacidad;
     private int nGalletasDentro;
+    //control
     private boolean lleno;
     private boolean listoParaEmpaquetar;
     private boolean listoParaDepositar;
     private boolean listoParaHornear;
     private Semaphore semaforo= new Semaphore(1);
+    //math
     private Random random = new Random();
-    
+    //UI
+    private String estado;
     
     public Horno(String idHorno, int capacidad) {
         this.idHorno = idHorno;
@@ -24,6 +27,7 @@ public class Horno extends Thread {
         this.lleno = false;
         this.listoParaEmpaquetar = false;
         this.listoParaDepositar=true;
+        this.estado="inactivo";
     }
 
     public void depositarGalletas(int nGalletas,Repostero repostero) {
@@ -59,10 +63,12 @@ public class Horno extends Thread {
     public void hornearGalletas() {
         try {
             semaforo.acquire();
+            estado="Horneando";
             listoParaDepositar=false;
             System.out.println(idHorno + " Empieza a hornear");
             sleep(8000);
             System.out.println(idHorno + " termina de hornear");
+            estado="inactivo";
             listoParaHornear=false;
             listoParaEmpaquetar = true;
         } catch (InterruptedException e) {
@@ -150,6 +156,14 @@ public class Horno extends Thread {
 
     public void setListoParaDepositar(boolean listoParaDepositar) {
         this.listoParaDepositar = listoParaDepositar;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
     

@@ -49,14 +49,14 @@ public class Main {
         List<Empaquetador> listaEmpaquetadores= Collections.synchronizedList(new LinkedList<>());
         
         Almacen almacen= new Almacen(1000);
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 3; i++) {
             Horno horno= new Horno("horno"+(i+1), 200);
             Empaquetador empaquetador= new Empaquetador("empaquetador"+(i+1), horno, almacen);
             listaHornos.add(horno);
             listaEmpaquetadores.add(empaquetador);
         }
         Cafetera cafetera= new Cafetera();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             Repostero repostero= new Repostero("repostero"+(i+1), listaHornos, cafetera);
             listaReposteros.add(repostero);
         }
