@@ -4,6 +4,9 @@
  */
 package com.mycompany.trabajofinalpp;
 
+import static java.lang.Math.random;
+import static java.lang.Thread.sleep;
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -14,31 +17,62 @@ public class Almacen {
     private int capacidad;//1000
     private int nGalletasDentro;
     private boolean lleno;
-    Semaphore semaforo= new Semaphore(1);
-
+    private Semaphore semaforoSala= new Semaphore(1); 
+    //sala de almacen ficticia, alli un empaquetador puede entrar y dormir antes de manipular la sc, para no dificultar la comida del usuario
+    private  Semaphore sc= new Semaphore(1);
+    
+    private Random random= new Random();
+    private boolean usuarioQuiereComer;
     public Almacen(int capacidad) {
         this.capacidad = capacidad;
         this.nGalletasDentro = 0;
         this.lleno=false;
+        this.usuarioQuiereComer=false;
     }
-    public void introducirPaquete(Empaquetador empaquetador){
-        try {
-            semaforo.acquire();
-            if(!lleno){
-            nGalletasDentro+=100;
+    public boolean introducirPaquete(Empaquetador empaquetador){
+        boolean metido=false;
+        if(!usuarioQuiereComer){
+            try {
+                semaforoSala.acquire();
+                Thread.sleep(2000 + random.nextInt(2000));
+                sc.acquire();
+                if(nGalletasDentro>=capacidad){
+                    lleno=true;
+                    metido=false;
+                    System.out.println(empaquetador.getIdEmpaquetador()+" ha intentado depositar un paquete pero el almacen esta lleno");
+                }
+                if(!lleno){
+                    nGalletasDentro+=100;
+                    metido=true;
+                    System.out.println(empaquetador.getIdEmpaquetador() +" ha depositado un paquete en el Almacen --> Total: " + nGalletasDentro +"/"+ capacidad);
+                }
+            } catch (InterruptedException ie) {
+                ie.printStackTrace(); 
+            } finally {
+                sc.release();
+                semaforoSala.release();
             }
-            if(nGalletasDentro==capacidad){
-                lleno=true;
-            }
-            System.out.println(empaquetador.getIdEmpaquetador() +" ha depositado un paquete en el Almacen --> Total: " + nGalletasDentro);
-
-        } catch (InterruptedException ie) {
-            ie.printStackTrace(); 
-        } finally {
-            semaforo.release();
         }
+        return metido;
     }
-
+    public int comer(int n){
+        usuarioQuiereComer=true;
+        int resultado=0;
+        try {
+            sc.acquire();
+            if (nGalletasDentro >= n) { // Verificar si hay suficientes galletas
+                lleno=false;
+                nGalletasDentro -= n;
+                resultado=n;
+                System.out.println("Usuario come " + n + " galletas, estado del almacen --> " + nGalletasDentro + "/" + capacidad);
+            }
+        } catch (Exception e) {
+        } finally {
+            usuarioQuiereComer=false;
+            sc.release();
+        }
+        return resultado;
+    }
     public int getCapacidad() {
         return capacidad;
     }

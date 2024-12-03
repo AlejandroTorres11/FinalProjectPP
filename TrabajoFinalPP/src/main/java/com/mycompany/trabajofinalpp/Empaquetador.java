@@ -16,12 +16,16 @@ public class Empaquetador extends Thread {
     private Horno horno;
     private Almacen almacen;
     private int nGalletasEncima;
- 
+    private int nLotes;
+    private String estado;
+    
     public Empaquetador(String idEmpaquetador, Horno horno, Almacen almacen) {
         this.idEmpaquetador = idEmpaquetador; // idEmpaquetador es ahora un String
         this.horno = horno;
         this.almacen = almacen;
         this.nGalletasEncima = 0;
+        this.nLotes=0;
+        this.estado="esperando";
     }
 
     @Override
@@ -32,13 +36,27 @@ public class Empaquetador extends Thread {
             try {
                 while(nGalletasEncima<100){ 
                     if(horno.isListoParaEmpaquetar()){
+                        estado="empaquetando";
                         nGalletasEncima+= horno.extraerGalletas(this);
+                        nLotes++;
+                        //System.out.println("--------------------------------"+idEmpaquetador+" lleva ya "+nLotes+"------------------------------------");
                     }
                 }
                 if(nGalletasEncima==100){
-                    almacen.introducirPaquete(this);
-                    nGalletasEncima=0;
+                    if(almacen.isLleno()){
+                        estado="esperando";
+                        sleep(1000);
+                    }
+                    else{
+                        estado="introduciendo en Almacén";
+                        boolean metido=almacen.introducirPaquete(this);
+                        if(metido){
+                            nGalletasEncima=0;
+                            nLotes=0;
+                        }
+                    }
                 }
+                estado="esperando";
             } catch (Exception e) {
             }
         }
@@ -75,4 +93,21 @@ public class Empaquetador extends Thread {
     public void setnGalletasEncima(int nGalletasEncima) {
         this.nGalletasEncima = nGalletasEncima;
     }
+
+    public int getnLotes() {
+        return nLotes;
+    }
+
+    public void setnLotes(int nLotes) {
+        this.nLotes = nLotes;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
 }

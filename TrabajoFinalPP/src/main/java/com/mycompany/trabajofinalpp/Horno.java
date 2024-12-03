@@ -58,7 +58,7 @@ public class Horno extends Thread {
                 }
             }
             else{
-                System.out.println("---------------------"+idHorno+" NO LISTO, SERVICIO DENEGADO----------------------------------------------");
+                //System.out.println("---------------------"+idHorno+" NO LISTO, SERVICIO DENEGADO----------------------------------------------");
             }
             
         } catch (InterruptedException ie) {
@@ -99,9 +99,8 @@ public class Horno extends Thread {
             semaforo.acquire();
             listoParaDepositar=false;
             if (nGalletasDentro - 20 >= 0) {
-                nGalletasDentro -= 20;
                 sleep(500 + random.nextInt(500));
-                
+                nGalletasDentro -= 20;
             }
             if (nGalletasDentro == 0) { //se ha vaciado
                 listoParaEmpaquetar = false;

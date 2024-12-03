@@ -27,97 +27,141 @@
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" pref="65" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cReposteroUsandotxt" min="-2" pref="98" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="r1estadotxt" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="h1progressbar" pref="0" max="32767" attributes="0"/>
-                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="h1nGalletastxt" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                                              <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="h1estadotxt" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="e1estado" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
-                                              <Component id="jButton1" min="-2" pref="139" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="jLabel8" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
-                                                          <Component id="jLabel11" max="32767" attributes="0"/>
-                                                          <Component id="h2nGalletastxt" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                                                          <Component id="h2estadotxt" alignment="0" max="32767" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="h2progressbar" min="-2" pref="111" max="-2" attributes="0"/>
-                                                          <Component id="jLabel14" min="-2" pref="95" max="-2" attributes="0"/>
-                                                          <Component id="e2estado" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel3" min="-2" pref="75" max="-2" attributes="0"/>
-                                          <Component id="r2estadotxt" min="-2" pref="90" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel4" min="-2" pref="75" max="-2" attributes="0"/>
-                                          <Component id="r3estadotxt" min="-2" pref="92" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="h1progressbar" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="h1nGalletastxt" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="h1estadotxt" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel6" min="-2" pref="85" max="-2" attributes="0"/>
-                                          <Component id="r5estadotxt" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                                      <Component id="jLabel16" min="-2" pref="118" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="e3estado" min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="h3progressbar" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel12" max="32767" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="h3nGalletastxt" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <Component id="h3estadotxt" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="h2progressbar" min="-2" pref="111" max="-2" attributes="0"/>
+                                          <Component id="jLabel14" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="e2estado" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel8" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" max="32767" attributes="0"/>
+                                              <Component id="h2nGalletastxt" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                              <Component id="h2estadotxt" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jButton1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jButton10" linkSize="7" min="-2" pref="29" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton11" linkSize="7" min="-2" pref="21" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton9" linkSize="7" min="-2" pref="23" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton7" linkSize="7" min="-2" pref="26" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton8" linkSize="7" min="-2" pref="26" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="almacenNGalletastxt" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="comerButton" min="-2" pref="139" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                              <Component id="nGalletasComidastxt" min="-2" pref="164" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel5" max="32767" attributes="0"/>
-                                  <Component id="r4estadotxt" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cReposteroUsandotxt" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="r1estadotxt" alignment="0" pref="87" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="cReposterosColatxt" min="-2" pref="549" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cReposterosColatxt" alignment="0" min="-2" pref="549" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="e1estado" min="-2" pref="159" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jButton5" linkSize="6" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton6" linkSize="6" min="-2" pref="21" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton4" linkSize="6" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton2" linkSize="6" min="-2" pref="26" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton3" linkSize="6" min="-2" pref="26" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="r2estadotxt" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel5" max="32767" attributes="0"/>
+                                                  <Component id="r4estadotxt" min="-2" pref="89" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="r3estadotxt" min="-2" pref="92" max="-2" attributes="0"/>
+                                                  <Component id="jLabel4" min="-2" pref="92" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="r5estadotxt" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="h3progressbar" pref="0" max="32767" attributes="0"/>
+                              <Component id="jLabel12" max="32767" attributes="0"/>
+                              <Component id="jLabel9" min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="h3nGalletastxt" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="h3estadotxt" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="e3estado" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jButton13" linkSize="9" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton14" linkSize="9" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton12" linkSize="9" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton15" linkSize="9" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton16" linkSize="9" min="-2" pref="26" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -129,7 +173,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -222,9 +266,36 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButton2" linkSize="5" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jButton4" linkSize="5" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jButton6" linkSize="5" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jButton5" linkSize="5" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jButton3" linkSize="5" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jButton15" linkSize="10" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jButton12" linkSize="10" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jButton14" linkSize="10" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jButton13" linkSize="10" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jButton16" linkSize="10" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jButton7" linkSize="8" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jButton9" linkSize="8" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jButton11" linkSize="8" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jButton10" linkSize="8" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jButton8" linkSize="8" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="jLabel16" min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="almacenNGalletastxt" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="comerButton" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                  <Component id="nGalletasComidastxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -377,6 +448,56 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="e3estado">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton4">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton5">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton6">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton7">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton8">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton9">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton10">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton11">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton12">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton13">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton14">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton15">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton16">
+    </Component>
+    <Component class="javax.swing.JButton" name="comerButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="COMER (100)"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comerButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Almac&#xe9;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="almacenNGalletastxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="nGalletasComidastxt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="galletas comidas: 0"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
