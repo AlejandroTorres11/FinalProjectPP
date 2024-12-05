@@ -14,6 +14,9 @@ import java.util.List;
 import com.mycompany.trabajofinalpp.common.InfoRepostero;
 import com.mycompany.trabajofinalpp.common.InfoHorno;
 import com.mycompany.trabajofinalpp.common.InfoAlmacen;
+import com.mycompany.trabajofinalpp.common.InterfazObjetoRemoto;
+import java.rmi.RemoteException;
+import javax.swing.JTextField;
 
 public class ClienteUI extends javax.swing.JFrame {
 
@@ -22,13 +25,23 @@ public class ClienteUI extends javax.swing.JFrame {
     private List<InfoHorno> listaHornos;
     private InfoAlmacen almacen;
     
-    public ClienteUI(List<InfoRepostero> listaReposteros,List<InfoHorno> listaHornos,InfoAlmacen almacen) {
+    public ClienteUI(InterfazObjetoRemoto obj) throws RemoteException{
         initComponents();
-        this.listaReposteros=listaReposteros;
-        this.listaHornos=listaHornos;
-        this.almacen=almacen;
+        this.listaReposteros=obj.getInfoReposteros();
+        this.listaHornos=obj.getInfoHornos();
+        this.almacen=obj.getInfoAlmacen();
     }
-    
+    public void update(){
+        
+    }
+    public void updateReposteros(){
+        JTextField[] listaGalletasGeneradasFields = {r1ngg,r2ngg,r3ngg,r4ngg,r5ngg};
+        JTextField[] listaGalletasDesperdiciadasFields ={r1ngd,r2ngd,r3ngd,r4ngd,r5ngd};
+        for(int i=0;i<listaReposteros.size();i++){
+            int galletasGeneradas=listaReposteros.get(i).nGalletasGeneradas();
+            listaGalletasGeneradasFields[i].setText(""+galletasGeneradas);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

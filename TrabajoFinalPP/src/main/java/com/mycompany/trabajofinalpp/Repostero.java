@@ -18,7 +18,8 @@ public class Repostero extends Thread{
     private List<Horno> listaHornos;
     private boolean esperaCafe;
     private String estado;
-
+    private int nGalletasGeneradasTotales;
+    private int nGalletasDesperdiciadasTotales;
     private Cafetera cafetera;
     private Random random = new Random();
     
@@ -30,6 +31,8 @@ public class Repostero extends Thread{
         this.cafetera = cafetera;
         this.esperaCafe=false;
         this.estado="inactivo";
+        this.nGalletasGeneradasTotales=0;
+        this.nGalletasDesperdiciadasTotales=0;
     }
     
    public int producirTandaGalletas() throws InterruptedException{ //produce las tandas de galletas con numero aleatorio
@@ -60,8 +63,9 @@ public class Repostero extends Thread{
                     Horno horno= buscarHorno();
                     if(horno!=null && horno.isListoParaDepositar()){ //si el horno no esta lleno
                         int nGalletas=producirTandaGalletas();
-                        horno.depositarGalletas(nGalletas,this);
-                        
+                        nGalletasGeneradasTotales+=nGalletas;
+                        int nGalletasDesperdiciadas=horno.depositarGalletas(nGalletas,this);
+                        nGalletasDesperdiciadasTotales+=nGalletasDesperdiciadas;
                         if(numeroDeTandas>=3 ){ 
                             ultimaTanda = (Math.random() < 0.5); //entre 3 y 5 tandas hay un 50% de que sea la ultima
                         } 

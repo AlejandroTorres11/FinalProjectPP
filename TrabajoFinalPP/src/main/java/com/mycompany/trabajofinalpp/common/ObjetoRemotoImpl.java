@@ -31,7 +31,7 @@ public class ObjetoRemotoImpl extends UnicastRemoteObject implements InterfazObj
     }
 
     @Override
-    public InfoAlmacen getInfoAlmacén() throws RemoteException {
+    public InfoAlmacen getInfoAlmacen() throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

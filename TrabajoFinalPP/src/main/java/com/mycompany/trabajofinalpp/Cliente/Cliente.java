@@ -21,7 +21,7 @@ public class Cliente {
         try {
             // Conectar al objeto remoto
             InterfazObjetoRemoto objetoRemoto= (InterfazObjetoRemoto) Naming.lookup("rmi://localhost:1099/ObjetoRMI");
-            
+            ClienteUI clienteUI= new ClienteUI(objetoRemoto);
             // Llamar a los métodos remotos
 
         } catch (Exception e) {

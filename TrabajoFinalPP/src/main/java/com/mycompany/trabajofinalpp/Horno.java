@@ -32,11 +32,11 @@ public class Horno extends Thread {
         this.progresoHorneado=0;
     }
 
-    public void depositarGalletas(int nGalletas,Repostero repostero) {
+    public int depositarGalletas(int nGalletas,Repostero repostero) {
+        int nGalletasDesperdiciadas = 0;
         try {
             if(listoParaDepositar){
                 semaforo.acquire();
-                int nGalletasDesperdiciadas = 0;
                 if(nGalletasDentro!=capacidad){
                     if (nGalletasDentro + nGalletas >= capacidad) {
                      lleno = true;
@@ -60,12 +60,12 @@ public class Horno extends Thread {
             else{
                 //System.out.println("---------------------"+idHorno+" NO LISTO, SERVICIO DENEGADO----------------------------------------------");
             }
-            
         } catch (InterruptedException ie) {
             ie.printStackTrace();
         } finally {
             semaforo.release();
         }
+        return nGalletasDesperdiciadas;
     }
 
     public void hornearGalletas() {

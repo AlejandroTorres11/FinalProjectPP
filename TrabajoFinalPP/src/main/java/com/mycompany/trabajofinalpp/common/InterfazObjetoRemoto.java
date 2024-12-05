@@ -11,7 +11,7 @@ import java.util.List;
 public interface InterfazObjetoRemoto extends Remote {
     List<InfoRepostero> getInfoReposteros() throws RemoteException;
     List<InfoHorno> getInfoHornos() throws RemoteException;
-    InfoAlmacen getInfoAlmacén() throws RemoteException;
+    InfoAlmacen getInfoAlmacen() throws RemoteException;
     public void pararRepostero(Repostero r) throws RemoteException;
     public void reanudarRepostero(Repostero r) throws RemoteException;
 }
