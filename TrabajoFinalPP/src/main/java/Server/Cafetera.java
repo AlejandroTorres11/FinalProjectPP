@@ -4,6 +4,7 @@
  */
 package Server;
 
+import java.io.Serializable;
 import static java.lang.Math.random;
 import java.util.concurrent.Semaphore;
 
@@ -11,7 +12,7 @@ import java.util.concurrent.Semaphore;
  *
  * @author aleja
  */
-public class Cafetera {
+public class Cafetera implements Serializable{
     private Repostero reposteroActual;
     private Semaphore semaforo= new Semaphore(1);
     

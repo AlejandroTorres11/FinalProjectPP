@@ -29,13 +29,8 @@ public class ObjetoRemotoImpl extends UnicastRemoteObject implements InterfazObj
     }
     
     @Override
-    public List<InfoRepostero> getInfoReposteros() throws RemoteException {
-        List<InfoRepostero> infoReposteros = new ArrayList<>();
-        for (Repostero repostero : listaReposteros) {
-            InfoRepostero info = new InfoRepostero(repostero.getIdRepostero(), repostero.getnGalletasGeneradasTotales(), repostero.getnGalletasDesperdiciadasTotales());
-            infoReposteros.add(info);
-        }
-        return infoReposteros;
+    public List<Repostero> getInfoReposteros() throws RemoteException {
+        return listaReposteros;
     }
 
     @Override
@@ -50,17 +45,17 @@ public class ObjetoRemotoImpl extends UnicastRemoteObject implements InterfazObj
 
     @Override
     public InfoAlmacen getInfoAlmacen() throws RemoteException {
-        return new InfoAlmacen( almacen.getCapacidad(), almacen.getnGalletasComidas());
+        return new InfoAlmacen( almacen.getnGalletasDentro(), almacen.getnGalletasComidas());
     }
 
     @Override
-    public void pararRepostero(Repostero r) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void pararRepostero(int pos) throws RemoteException {
+        listaReposteros.get(pos).setPaused(true);
     }
 
     @Override
-    public void reanudarRepostero(Repostero r) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void reanudarRepostero(int pos) throws RemoteException {
+        listaReposteros.get(pos).setPaused(false);
     }
     
 }

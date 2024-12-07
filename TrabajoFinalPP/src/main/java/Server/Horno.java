@@ -1,11 +1,12 @@
 package Server;
 
 import static java.awt.SystemColor.control;
+import java.io.Serializable;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 
-public class Horno extends Thread {
+public class Horno extends Thread implements Serializable{
     private String idHorno;
     private final int capacidad;
     private int nGalletasDentro;

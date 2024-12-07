@@ -4,6 +4,7 @@
  */
 package Server;
 
+import java.io.Serializable;
 import static java.lang.Math.random;
 import static java.lang.Thread.sleep;
 import java.util.Random;
@@ -13,7 +14,7 @@ import java.util.concurrent.Semaphore;
  *
  * @author alejandro
  */
-public class Almacen {
+public class Almacen implements Serializable{
     private int capacidad;//1000
     private int nGalletasDentro;
     private boolean lleno;

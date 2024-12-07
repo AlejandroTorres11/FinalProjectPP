@@ -4,13 +4,14 @@
  */
 package Server;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author alejandro
  */
-public class Empaquetador extends Thread {
+public class Empaquetador extends Thread implements Serializable{
     private String idEmpaquetador; // Cambiado de int a String
     private List<Horno> listaHornos;
     private Horno horno;
