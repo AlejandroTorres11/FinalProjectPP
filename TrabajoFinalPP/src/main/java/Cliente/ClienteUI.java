@@ -477,72 +477,92 @@ public class ClienteUI extends javax.swing.JFrame implements Runnable{
 
     private void buttonR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonR1ActionPerformed
     try {
-            Repostero repostero = listaReposteros.get(0);
-        if (repostero.isPaused()) {
-                objetoRemoto.pararRepostero(0); // Si está pausado, reanudar
-                buttonR2.setText("Parar"); // Cambiar el texto a "Parar"
-            } else {
-                objetoRemoto.reanudarRepostero(0);   // Si no está pausado, pausar
-                buttonR2.setText("Reanudar"); // Cambiar el texto a "Reanudar"
-            }
-        } catch (Exception e) {
-        } 
+        Repostero repostero = listaReposteros.get(0); // Obtener el repostero correspondiente
+        
+        if (buttonR1.isSelected()) { 
+            // Si el botón está en estado "seleccionado" (true)
+            objetoRemoto.pararRepostero(0); // Pausar el repostero
+            buttonR1.setText("Reanudar"); // Cambiar el texto a "Reanudar"
+        } else { 
+            // Si el botón está en estado "no seleccionado" (false)
+            objetoRemoto.reanudarRepostero(0); // Reanudar el repostero
+            buttonR1.setText("Parar"); // Cambiar el texto a "Parar"
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); // Manejo de excepciones
+        }
     }//GEN-LAST:event_buttonR1ActionPerformed
 
     private void buttonR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonR2ActionPerformed
         try {
-            Repostero repostero = listaReposteros.get(1);
-        if (repostero.isPaused()) {
-                objetoRemoto.pararRepostero(1); // Si está pausado, reanudar
-                buttonR2.setText("Parar"); // Cambiar el texto a "Parar"
-            } else {
-                objetoRemoto.reanudarRepostero(1);   // Si no está pausado, pausar
-                buttonR2.setText("Reanudar"); // Cambiar el texto a "Reanudar"
-            }
-        } catch (Exception e) {
-        } 
+        Repostero repostero = listaReposteros.get(1); // Obtener el repostero correspondiente al botón R5
+
+        if (buttonR2.isSelected()) { 
+            // Si el botón está en estado "seleccionado" (true)
+            objetoRemoto.pararRepostero(1); // Pausar el repostero
+            buttonR2.setText("Reanudar"); // Cambiar el texto a "Reanudar"
+        } else { 
+            // Si el botón está en estado "no seleccionado" (false)
+            objetoRemoto.reanudarRepostero(1); // Reanudar el repostero
+            buttonR2.setText("Parar"); // Cambiar el texto a "Parar"
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); // Manejo de excepciones
+    }
     }//GEN-LAST:event_buttonR2ActionPerformed
 
     private void buttonR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonR3ActionPerformed
        try {
-            Repostero repostero = listaReposteros.get(2);
-        if (repostero.isPaused()) {
-                objetoRemoto.pararRepostero(2); // Si está pausado, reanudar
-                buttonR2.setText("Parar"); // Cambiar el texto a "Parar"
-            } else {
-                objetoRemoto.reanudarRepostero(2);   // Si no está pausado, pausar
-                buttonR2.setText("Reanudar"); // Cambiar el texto a "Reanudar"
-            }
-        } catch (Exception e) {
-        } 
+        Repostero repostero = listaReposteros.get(2); // Obtener el repostero correspondiente al botón R3
+
+        if (buttonR3.isSelected()) { 
+            // Si el botón está en estado "seleccionado" (true)
+            objetoRemoto.pararRepostero(2); // Pausar el repostero
+            buttonR3.setText("Reanudar"); // Cambiar el texto a "Reanudar"
+        } else { 
+            // Si el botón está en estado "no seleccionado" (false)
+            objetoRemoto.reanudarRepostero(2); // Reanudar el repostero
+            buttonR3.setText("Parar"); // Cambiar el texto a "Parar"
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); // Manejo de excepciones
+    }
     }//GEN-LAST:event_buttonR3ActionPerformed
 
     private void buttonR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonR4ActionPerformed
         try {
-            Repostero repostero = listaReposteros.get(3);
-        if (repostero.isPaused()) {
-                objetoRemoto.pararRepostero(3); // Si está pausado, reanudar
-                buttonR2.setText("Parar"); // Cambiar el texto a "Parar"
-            } else {
-                objetoRemoto.reanudarRepostero(3);   // Si no está pausado, pausar
-                buttonR2.setText("Reanudar"); // Cambiar el texto a "Reanudar"
-            }
-        } catch (Exception e) {
-        } 
+        Repostero repostero = listaReposteros.get(3); // Obtener el repostero correspondiente al botón R4
+
+        if (buttonR4.isSelected()) { 
+            // Si el botón está en estado "seleccionado" (true)
+            objetoRemoto.pararRepostero(3); // Pausar el repostero
+            buttonR4.setText("Reanudar"); // Cambiar el texto a "Reanudar"
+        } else { 
+            // Si el botón está en estado "no seleccionado" (false)
+            objetoRemoto.reanudarRepostero(3); // Reanudar el repostero
+            buttonR4.setText("Parar"); // Cambiar el texto a "Parar"
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); // Manejo de excepciones
+    }
     }//GEN-LAST:event_buttonR4ActionPerformed
 
     private void buttonR5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonR5ActionPerformed
         try {
-            Repostero repostero = listaReposteros.get(4);
-        if (repostero.isPaused()) {
-                objetoRemoto.pararRepostero(4); // Si está pausado, reanudar
-                buttonR2.setText("Parar"); // Cambiar el texto a "Parar"
-            } else {
-                objetoRemoto.reanudarRepostero(4);   // Si no está pausado, pausar
-                buttonR2.setText("Reanudar"); // Cambiar el texto a "Reanudar"
-            }
-        } catch (Exception e) {
-        } 
+        Repostero repostero = listaReposteros.get(4); // Obtener el repostero correspondiente al botón R5
+
+        if (buttonR5.isSelected()) { 
+            // Si el botón está en estado "seleccionado" (true)
+            objetoRemoto.pararRepostero(4); // Pausar el repostero
+            buttonR5.setText("Reanudar"); // Cambiar el texto a "Reanudar"
+        } else { 
+            // Si el botón está en estado "no seleccionado" (false)
+            objetoRemoto.reanudarRepostero(4); // Reanudar el repostero
+            buttonR5.setText("Parar"); // Cambiar el texto a "Parar"
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); // Manejo de excepciones
+    }
     }//GEN-LAST:event_buttonR5ActionPerformed
 
     private void h1ghActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ghActionPerformed

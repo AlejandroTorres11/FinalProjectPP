@@ -50,12 +50,12 @@ public class ObjetoRemotoImpl extends UnicastRemoteObject implements InterfazObj
 
     @Override
     public void pararRepostero(int pos) throws RemoteException {
-        listaReposteros.get(pos).setPaused(true);
+        listaReposteros.get(pos).pauseThread();
     }
 
     @Override
     public void reanudarRepostero(int pos) throws RemoteException {
-        listaReposteros.get(pos).setPaused(false);
+        listaReposteros.get(pos).resumeThread();
     }
     
 }

@@ -3,9 +3,8 @@ package Server;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class Repostero extends Thread implements Serializable{
+public class Repostero extends Thread implements Serializable {
     private String idRepostero;
     private int numeroDeTandas;
     private List<Horno> listaHornos;
@@ -15,8 +14,8 @@ public class Repostero extends Thread implements Serializable{
     private int nGalletasDesperdiciadasTotales;
     private Cafetera cafetera;
     private Random random = new Random();
-    private boolean paused = false; // Flag para la pausa
-    private ReentrantLock lock= new ReentrantLock();
+    private boolean paused = false; // Flag para pausar el hilo
+
     public Repostero(String idRepostero, List<Horno> listaHornos, Cafetera cafetera) {
         this.idRepostero = idRepostero;
         this.listaHornos = listaHornos;
@@ -29,13 +28,16 @@ public class Repostero extends Thread implements Serializable{
     }
 
     public int producirTandaGalletas() throws InterruptedException {
+        checkPaused(); // Verificar si el hilo está pausado
         sleep(2000 + random.nextInt(2000));
+        checkPaused(); // Verificar de nuevo después de dormir
         int numeroAleatorio = 37 + random.nextInt(45 - 37 + 1);
         numeroDeTandas++;
         return numeroAleatorio;
     }
 
     public Horno buscarHorno() {
+        checkPaused(); // Verificar si el hilo está pausado antes de buscar un horno
         for (Horno h : listaHornos) {
             if (h.isListoParaDepositar()) {
                 return h;
@@ -48,20 +50,18 @@ public class Repostero extends Thread implements Serializable{
     public void run() {
         while (true) {
             try {
+                // Verificar si el hilo está pausado en cada iteración
+                checkPaused();
+
                 boolean ultimaTanda = false;
                 numeroDeTandas = 0;
-                checkIfPaused();
                 while (!ultimaTanda) {
-                    checkIfPaused();
+                    checkPaused(); // Verificar si el hilo está pausado antes de producir
                     estado = "produciendo" + "(" + numeroDeTandas + "/" + 5 + ")";
-                    checkIfPaused();
                     Horno horno = buscarHorno();
-                    checkIfPaused();
                     if (horno != null && horno.isListoParaDepositar()) {
-                        checkIfPaused();
                         int nGalletas = producirTandaGalletas();
                         nGalletasGeneradasTotales += nGalletas;
-                        checkIfPaused();
                         int nGalletasDesperdiciadas = horno.depositarGalletas(nGalletas, this);
                         nGalletasDesperdiciadasTotales += nGalletasDesperdiciadas;
                         if (numeroDeTandas >= 3) {
@@ -72,23 +72,18 @@ public class Repostero extends Thread implements Serializable{
                         }
                     }
                 }
-                checkIfPaused();
                 esperaCafe = true;
                 estado = "pausa para el café";
-                checkIfPaused();
                 cafetera.empezarCafe(this);
                 System.out.println(idRepostero + " empieza a hacer café");
-                checkIfPaused();
                 sleep(2000);
-                checkIfPaused();
+
                 cafetera.terminarCafe();
                 System.out.println(idRepostero + " termina de hacer café");
                 esperaCafe = false;
-                checkIfPaused();
                 estado = "descanso";
                 System.out.println(idRepostero + " empieza a descansar");
                 sleep(3000 + random.nextInt(3000));
-                checkIfPaused();
                 System.out.println(idRepostero + " termina de descansar");
 
             } catch (InterruptedException e) {
@@ -97,26 +92,29 @@ public class Repostero extends Thread implements Serializable{
         }
     }
 
-    public synchronized void setPaused(boolean paused) {
-        this.paused = paused;
-        String estadoAnterior=estado;
-        // Cambiar el estado del repostero a "pausado" si se está pausando
-        if (paused) {
-            estado = "pausado";
-        } else {
-            // Si se reanuda, actualizar el estado a "activo" o el valor correspondiente
-            estado = estadoAnterior;  // O el estado que prefieras cuando se reanuda
-            lock.unlock();    // Notificar que se ha reanudado el repostero
-        }
+    // Método sincronizado para pausar el hilo
+    public synchronized void pauseThread() {
+        paused = true;
+        estado = "pausado";
     }
 
+    // Método sincronizado para reanudar el hilo
+    public synchronized void resumeThread() {
+        paused = false;
+        estado = "activo"; // O un estado adecuado como "produciendo"
+        notify(); // Notificar que el hilo puede continuar
+    }
 
-    // Método para verificar si está pausado y esperar si es necesario
-    private synchronized void checkIfPaused() throws InterruptedException {
-        if (paused) {
-                    lock.lock();  // Bloquea el hilo si está pausado
-                    // Mientras está bloqueado, el repostero espera
-                }
+    // Método para verificar si el hilo está pausado
+    private synchronized void checkPaused() {
+        while (paused) {
+            try {
+                wait(); // Espera hasta que se llame a resumeThread()
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Restaurar el estado interrumpido
+                System.out.println("Hilo interrumpido durante pausa: " + e.getMessage());
+            }
+        }
     }
 
     public String getIdRepostero() {
@@ -138,9 +136,4 @@ public class Repostero extends Thread implements Serializable{
     public int getnGalletasDesperdiciadasTotales() {
         return nGalletasDesperdiciadasTotales;
     }
-
-    public boolean isPaused() {
-        return paused;
-    }
-    
 }
