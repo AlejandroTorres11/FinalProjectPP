@@ -1,5 +1,6 @@
 Cliente\ClienteUI$7.class
 Server\Cafetera.class
+Server\Logger.class
 Cliente\ClienteUI$2.class
 Server\Horno.class
 Server\MainFrame$3.class
@@ -19,6 +20,7 @@ Server\MainFrame.class
 Cliente\ClienteUI$6.class
 Server\Empaquetador.class
 Common\InfoAlmacen.class
+Server\TeeOutputStream.class
 Common\InfoHorno.class
 Common\ObjetoRemotoImpl.class
 Server\Repostero.class

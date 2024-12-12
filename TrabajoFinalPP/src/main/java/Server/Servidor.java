@@ -1,24 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package Server;
 
-import Common.InfoAlmacen;
-import Common.InfoHorno;
-import Common.InfoRepostero;
 import Common.ObjetoRemotoImpl;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author alejandro
- */
 public class Servidor {
     private static List<Horno> listaHornos = Collections.synchronizedList(new LinkedList<>());
     private static List<Repostero> listaReposteros = Collections.synchronizedList(new LinkedList<>());
@@ -28,13 +18,21 @@ public class Servidor {
     private static MainFrame mainFrame;
     
     public static void main(String[] args) {
+        // Configurar logger para redirigir la salida
+        Logger.redirigirSalida("servidor_log.txt");
+
         inicializarComponentes();
         iniciarVentanaPrincipal();
         iniciarRMI();
     }
+    
+    private static String obtenerFechaHoraActual() {
+        LocalDateTime ahora = LocalDateTime.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return "[" + ahora.format(formato) + "] ";
+    }
 
     private static void inicializarComponentes() {
-        
         for (int i = 0; i < 3; i++) {
             Horno horno = new Horno("horno" + (i + 1), 200);
             Empaquetador empaquetador = new Empaquetador("empaquetador" + (i + 1), horno, almacen);
@@ -61,9 +59,9 @@ public class Servidor {
             LocateRegistry.createRegistry(1099);
             ObjetoRemotoImpl objetoRemoto = new ObjetoRemotoImpl(listaReposteros, listaHornos, almacen);
             Naming.rebind("rmi://localhost:1099/ObjetoRMI", objetoRemoto);
-            System.out.println("Servidor RMI está listo.");
+            System.out.println(obtenerFechaHoraActual() + "Servidor RMI está listo.");
         } catch (Exception e) {
-            System.err.println("Error al iniciar el servidor RMI: " + e.getMessage());
+            System.err.println(obtenerFechaHoraActual() + "Error al iniciar el servidor RMI: " + e.getMessage());
             e.printStackTrace();
         }
     }

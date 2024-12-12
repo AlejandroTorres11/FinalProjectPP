@@ -5,7 +5,6 @@
 package Server;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *
@@ -13,7 +12,6 @@ import java.util.List;
  */
 public class Empaquetador extends Thread implements Serializable{
     private String idEmpaquetador; // Cambiado de int a String
-    private List<Horno> listaHornos;
     private Horno horno;
     private Almacen almacen;
     private int nGalletasEncima;

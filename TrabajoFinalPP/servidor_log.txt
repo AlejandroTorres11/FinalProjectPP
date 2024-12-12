@@ -1,0 +1,134 @@
+[2024-12-11 13:12:43] Salida redirigida a consola y archivo: servidor_log.txt
+--------------------------------COMIENZA EL RUNEO-------------------------------------
+[2024-12-11 13:12:44] Servidor RMI está listo.
+[2024-12-11 13:13:01]  repostero1 ha depositado 39 galletas en el horno1. Total: 39
+[2024-12-11 13:13:02]  repostero3 ha depositado 43 galletas en el horno1. Total: 82
+[2024-12-11 13:13:02]  repostero5 ha depositado 42 galletas en el horno1. Total: 124
+[2024-12-11 13:13:02]  repostero4 ha depositado 38 galletas en el horno1. Total: 162
+[2024-12-11 13:13:03]  repostero2 ha depositado 42 galletas en el horno1. Total: 200 --> Se han desperdiciado --> 4 galletas
+[2024-12-11 13:13:03]  horno1 Empieza a hornear
+[2024-12-11 13:13:04] repostero2 Ha sido pausado
+[2024-12-11 13:13:06]  repostero1 ha depositado 45 galletas en el horno2. Total: 45
+[2024-12-11 13:13:06]  repostero1 empieza a hacer café
+[2024-12-11 13:13:08]  repostero3 ha depositado 40 galletas en el horno2. Total: 85
+[2024-12-11 13:13:08]  repostero5 ha depositado 38 galletas en el horno2. Total: 123
+[2024-12-11 13:13:08]  repostero4 ha depositado 41 galletas en el horno2. Total: 164
+[2024-12-11 13:13:08]  repostero1 termina de hacer café
+[2024-12-11 13:13:08]  repostero1 empieza a descansar
+[2024-12-11 13:13:10] repostero2 Ha sido reanudado
+[2024-12-11 13:13:10]  repostero2 ha depositado 37 galletas en el horno2. Total: 200 --> Se han desperdiciado --> 1 galletas
+[2024-12-11 13:13:11]  horno2 Empieza a hornear
+[2024-12-11 13:13:11]  horno1 termina de hornear
+[2024-12-11 13:13:12]  repostero4 empieza a hacer café
+[2024-12-11 13:13:12]  empaquetador1 ha extraido un lote --> galletas en horno: 180
+[2024-12-11 13:13:13]  empaquetador1 ha extraido un lote --> galletas en horno: 160
+[2024-12-11 13:13:13]  repostero5 ha depositado 41 galletas en el horno3. Total: 41
+[2024-12-11 13:13:13]  repostero1 termina de descansar
+[2024-12-11 13:13:14]  repostero2 ha depositado 43 galletas en el horno3. Total: 84
+[2024-12-11 13:13:14]  empaquetador1 ha extraido un lote --> galletas en horno: 140
+[2024-12-11 13:13:14]  repostero4 termina de hacer café
+[2024-12-11 13:13:14]  repostero5 empieza a hacer café
+[2024-12-11 13:13:14]  repostero4 empieza a descansar
+[2024-12-11 13:13:14]  empaquetador1 ha extraido un lote --> galletas en horno: 120
+[2024-12-11 13:13:15]  empaquetador1 ha extraido un lote --> galletas en horno: 100
+[2024-12-11 13:13:15]  repostero3 ha depositado 41 galletas en el horno3. Total: 125
+[2024-12-11 13:13:16]  repostero2 empieza a hacer café
+[2024-12-11 13:13:16]  repostero5 termina de hacer café
+[2024-12-11 13:13:16]  repostero5 empieza a descansar
+[2024-12-11 13:13:17]  repostero1 ha depositado 39 galletas en el horno3. Total: 164
+[2024-12-11 13:13:18]  repostero4 termina de descansar
+[2024-12-11 13:13:18]  repostero3 empieza a hacer café
+[2024-12-11 13:13:18]  repostero2 termina de hacer café
+[2024-12-11 13:13:18]  repostero2 empieza a descansar
+[2024-12-11 13:13:19] empaquetador1 ha depositado un paquete en el Almacen --> Total: 100/1000
+[2024-12-11 13:13:19]  horno2 termina de hornear
+[2024-12-11 13:13:20]  empaquetador1 ha extraido un lote --> galletas en horno: 80
+[2024-12-11 13:13:20]  repostero3 termina de hacer café
+[2024-12-11 13:13:20]  repostero3 empieza a descansar
+[2024-12-11 13:13:20]  repostero1 ha depositado 42 galletas en el horno3. Total: 200 --> Se han desperdiciado --> 6 galletas
+[2024-12-11 13:13:20]  empaquetador2 ha extraido un lote --> galletas en horno: 180
+[2024-12-11 13:13:20]  horno3 Empieza a hornear
+[2024-12-11 13:13:20]  empaquetador1 ha extraido un lote --> galletas en horno: 60
+[2024-12-11 13:13:21]  empaquetador2 ha extraido un lote --> galletas en horno: 160
+[2024-12-11 13:13:21]  empaquetador1 ha extraido un lote --> galletas en horno: 40
+[2024-12-11 13:13:22]  empaquetador1 ha extraido un lote --> galletas en horno: 20
+[2024-12-11 13:13:22]  repostero5 termina de descansar
+[2024-12-11 13:13:22]  empaquetador2 ha extraido un lote --> galletas en horno: 140
+[2024-12-11 13:13:22]  repostero2 termina de descansar
+[2024-12-11 13:13:22]  empaquetador2 ha extraido un lote --> galletas en horno: 120
+[2024-12-11 13:13:23]  empaquetador1 ha extraido un lote --> galletas en horno: 0
+[2024-12-11 13:13:23]  empaquetador2 ha extraido un lote --> galletas en horno: 100
+[2024-12-11 13:13:25]  repostero2 ha depositado 39 galletas en el horno1. Total: 39
+[2024-12-11 13:13:25]  repostero4 ha depositado 37 galletas en el horno1. Total: 76
+[2024-12-11 13:13:25]  repostero1 ha depositado 41 galletas en el horno1. Total: 117
+[2024-12-11 13:13:25]  repostero1 empieza a hacer café
+[2024-12-11 13:13:25]  repostero3 termina de descansar
+[2024-12-11 13:13:25] empaquetador1 ha depositado un paquete en el Almacen --> Total: 200/1000
+[2024-12-11 13:13:26]  repostero5 ha depositado 42 galletas en el horno1. Total: 159
+[2024-12-11 13:13:27]  repostero1 termina de hacer café
+[2024-12-11 13:13:27]  repostero1 empieza a descansar
+[2024-12-11 13:13:28] empaquetador2 ha depositado un paquete en el Almacen --> Total: 300/1000
+[2024-12-11 13:13:28]  repostero4 ha depositado 40 galletas en el horno1. Total: 199
+[2024-12-11 13:13:28]  horno3 termina de hornear
+[2024-12-11 13:13:28]  repostero5 ha depositado 38 galletas en el horno1. Total: 200 --> Se han desperdiciado --> 37 galletas
+[2024-12-11 13:13:28]  empaquetador2 ha extraido un lote --> galletas en horno: 80
+[2024-12-11 13:13:29]  empaquetador2 ha extraido un lote --> galletas en horno: 60
+[2024-12-11 13:13:29]  empaquetador3 ha extraido un lote --> galletas en horno: 180
+[2024-12-11 13:13:29]  horno1 Empieza a hornear
+[2024-12-11 13:13:30]  empaquetador2 ha extraido un lote --> galletas en horno: 40
+[2024-12-11 13:13:30]  empaquetador3 ha extraido un lote --> galletas en horno: 160
+[2024-12-11 13:13:30]  empaquetador2 ha extraido un lote --> galletas en horno: 20
+[2024-12-11 13:13:30]  empaquetador3 ha extraido un lote --> galletas en horno: 140
+[2024-12-11 13:13:31]  empaquetador2 ha extraido un lote --> galletas en horno: 0
+[2024-12-11 13:13:31]  empaquetador3 ha extraido un lote --> galletas en horno: 120
+[2024-12-11 13:13:32]  repostero4 empieza a hacer café
+[2024-12-11 13:13:32]  empaquetador3 ha extraido un lote --> galletas en horno: 100
+[2024-12-11 13:13:33]  repostero1 termina de descansar
+[2024-12-11 13:13:34]  repostero2 ha depositado 45 galletas en el horno2. Total: 45
+[2024-12-11 13:13:34]  repostero2 empieza a hacer café
+[2024-12-11 13:13:34]  repostero4 termina de hacer café
+[2024-12-11 13:13:34]  repostero4 empieza a descansar
+[2024-12-11 13:13:34] empaquetador2 ha depositado un paquete en el Almacen --> Total: 400/1000
+[2024-12-11 13:13:35]  repostero5 ha depositado 38 galletas en el horno2. Total: 83
+[2024-12-11 13:13:35]  repostero3 ha depositado 38 galletas en el horno2. Total: 121
+[2024-12-11 13:13:36]  repostero5 empieza a hacer café
+[2024-12-11 13:13:36]  repostero2 termina de hacer café
+[2024-12-11 13:13:36]  repostero2 empieza a descansar
+[2024-12-11 13:13:36]  repostero1 ha depositado 42 galletas en el horno2. Total: 163
+[2024-12-11 13:13:37]  repostero4 termina de descansar
+[2024-12-11 13:13:37]  horno1 termina de hornear
+[2024-12-11 13:13:38] empaquetador3 ha depositado un paquete en el Almacen --> Total: 500/1000
+[2024-12-11 13:13:38]  repostero3 ha depositado 43 galletas en el horno2. Total: 200 --> Se han desperdiciado --> 6 galletas
+[2024-12-11 13:13:38]  repostero5 termina de hacer café
+[2024-12-11 13:13:38]  repostero5 empieza a descansar
+[2024-12-11 13:13:38]  empaquetador1 ha extraido un lote --> galletas en horno: 180
+[2024-12-11 13:13:38]  horno2 Empieza a hornear
+[2024-12-11 13:13:38]  empaquetador3 ha extraido un lote --> galletas en horno: 80
+[2024-12-11 13:13:39]  empaquetador3 ha extraido un lote --> galletas en horno: 60
+[2024-12-11 13:13:39]  empaquetador1 ha extraido un lote --> galletas en horno: 160
+[2024-12-11 13:13:39]  empaquetador1 ha extraido un lote --> galletas en horno: 140
+[2024-12-11 13:13:39]  empaquetador3 ha extraido un lote --> galletas en horno: 40
+[2024-12-11 13:13:40]  empaquetador3 ha extraido un lote --> galletas en horno: 20
+[2024-12-11 13:13:40]  empaquetador1 ha extraido un lote --> galletas en horno: 120
+[2024-12-11 13:13:41]  empaquetador3 ha extraido un lote --> galletas en horno: 0
+[2024-12-11 13:13:41]  empaquetador1 ha extraido un lote --> galletas en horno: 100
+[2024-12-11 13:13:41]  repostero2 termina de descansar
+[2024-12-11 13:13:43]  repostero3 ha depositado 39 galletas en el horno3. Total: 39
+[2024-12-11 13:13:43]  repostero3 empieza a hacer café
+[2024-12-11 13:13:43]  repostero5 termina de descansar
+[2024-12-11 13:13:43] empaquetador3 ha depositado un paquete en el Almacen --> Total: 600/1000
+[2024-12-11 13:13:43]  repostero4 ha depositado 38 galletas en el horno3. Total: 77
+[2024-12-11 13:13:44]  repostero1 ha depositado 41 galletas en el horno3. Total: 118
+[2024-12-11 13:13:44]  repostero2 ha depositado 41 galletas en el horno3. Total: 159
+[2024-12-11 13:13:45]  repostero1 empieza a hacer café
+[2024-12-11 13:13:45]  repostero3 termina de hacer café
+[2024-12-11 13:13:45]  repostero3 empieza a descansar
+[2024-12-11 13:13:45]  repostero5 ha depositado 43 galletas en el horno3. Total: 200 --> Se han desperdiciado --> 2 galletas
+[2024-12-11 13:13:45]  horno3 Empieza a hornear
+[2024-12-11 13:13:46]  horno2 termina de hornear
+[2024-12-11 13:13:47]  repostero1 termina de hacer café
+[2024-12-11 13:13:47]  repostero1 empieza a descansar
+[2024-12-11 13:13:47] empaquetador1 ha depositado un paquete en el Almacen --> Total: 700/1000
+[2024-12-11 13:13:47]  empaquetador2 ha extraido un lote --> galletas en horno: 180
+[2024-12-11 13:13:48]  empaquetador2 ha extraido un lote --> galletas en horno: 160
+[2024-12-11 13:13:48]  empaquetador1 ha extraido un lote --> galletas en horno: 80

@@ -1,10 +1,10 @@
 package Server;
 
-import static java.awt.SystemColor.control;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Horno extends Thread implements Serializable{
     private String idHorno;
@@ -35,7 +35,13 @@ public class Horno extends Thread implements Serializable{
         this.nGalletasHorneadas=0;
         this.horneando=false;
     }
-
+    
+    private String obtenerFechaHoraActual() {
+        LocalDateTime ahora = LocalDateTime.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return "[" + ahora.format(formato) + "] ";
+    }
+    
     public int depositarGalletas(int nGalletas,Repostero repostero) {
         int nGalletasDesperdiciadas = 0;
         try {
@@ -49,13 +55,12 @@ public class Horno extends Thread implements Serializable{
                      nGalletasDesperdiciadas = (nGalletasDentro + nGalletas) - capacidad;
                      nGalletasDentro = capacidad;
 
-                     System.out.println(repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
-                                    ". Total: " + nGalletasDentro + "\n            Se han desperdiciado --> " +
-                                    nGalletasDesperdiciadas + " galletas");
+                     System.out.println(obtenerFechaHoraActual()+ " "+repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
+                                    ". Total: " + nGalletasDentro + " --> Se han desperdiciado --> " + nGalletasDesperdiciadas + " galletas");
                     } else {
                      nGalletasDentro += nGalletas;
 
-                      System.out.println(repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
+                      System.out.println(obtenerFechaHoraActual()+" "+ repostero.getIdRepostero()+ " ha depositado " + nGalletas + " galletas en el " + idHorno +
                                     ". Total: " + nGalletasDentro );
                     }
 
@@ -78,7 +83,7 @@ public class Horno extends Thread implements Serializable{
             horneando=true;
             listoParaDepositar=false;
             estado="Horneando";
-            System.out.println(idHorno + " Empieza a hornear");
+            System.out.println(obtenerFechaHoraActual()+" "+ idHorno + " Empieza a hornear");
             int duracion=8000;
             int pasos = 100;     // Número de actualizaciones de la barra
             int duracionPaso = duracion / pasos; // Duración de cada paso
@@ -87,7 +92,7 @@ public class Horno extends Thread implements Serializable{
                 progresoHorneado=i;
                 Thread.sleep(duracionPaso);
             }
-            System.out.println(idHorno + " termina de hornear");
+            System.out.println(obtenerFechaHoraActual()+" "+ idHorno + " termina de hornear");
             horneando=false;
             nGalletasHorneadas+=capacidad;
             progresoHorneado=0;
@@ -115,7 +120,7 @@ public class Horno extends Thread implements Serializable{
                 listoParaDepositar = true; 
                 
             }
-            System.out.println(empaquetador.getIdEmpaquetador()+" ha extraido un lote --> galletas en horno: "+nGalletasDentro);
+            System.out.println(obtenerFechaHoraActual()+ " "+empaquetador.getIdEmpaquetador()+" ha extraido un lote --> galletas en horno: "+nGalletasDentro);
             
         } catch (InterruptedException ie) {
             ie.printStackTrace();
@@ -126,7 +131,7 @@ public class Horno extends Thread implements Serializable{
     }
 
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " ha comenzado.");
+        //System.out.println(Thread.currentThread().getName() + " ha comenzado.");
         while (true) {
             try {
                 if (listoParaHornear) {

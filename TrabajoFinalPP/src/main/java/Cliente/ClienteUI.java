@@ -9,9 +9,7 @@ package Cliente;
  *
  * @author alejandro
  */
-import java.util.ArrayList;
 import java.util.List;
-import Common.InfoRepostero;
 import Common.InfoHorno;
 import Common.InfoAlmacen;
 import Common.InterfazObjetoRemoto;
@@ -654,7 +652,7 @@ public class ClienteUI extends javax.swing.JFrame implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("--------------------------------COMIENZA EL RUNEO-------------------------------------");
+        //System.out.println("--------------------------------COMIENZA EL RUNEO-------------------------------------");
         while (true) {
             try {
                 update();

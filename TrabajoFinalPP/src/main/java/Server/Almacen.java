@@ -5,11 +5,10 @@
 package Server;
 
 import java.io.Serializable;
-import static java.lang.Math.random;
-import static java.lang.Thread.sleep;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author alejandro
@@ -31,6 +30,13 @@ public class Almacen implements Serializable{
         this.usuarioQuiereComer=false;
         this.nGalletasComidas=0;
     }
+    
+    private String obtenerFechaHoraActual() {
+        LocalDateTime ahora = LocalDateTime.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return "[" + ahora.format(formato) + "] ";
+    }
+    
     public boolean introducirPaquete(Empaquetador empaquetador){
         boolean metido=false;
         if(!usuarioQuiereComer){
@@ -41,12 +47,12 @@ public class Almacen implements Serializable{
                 if(nGalletasDentro>=capacidad){
                     lleno=true;
                     metido=false;
-                    System.out.println(empaquetador.getIdEmpaquetador()+" ha intentado depositar un paquete pero el almacen esta lleno");
+                    System.out.println(obtenerFechaHoraActual()+ empaquetador.getIdEmpaquetador()+" ha intentado depositar un paquete pero el almacen esta lleno");
                 }
                 if(!lleno){
                     nGalletasDentro+=100;
                     metido=true;
-                    System.out.println(empaquetador.getIdEmpaquetador() +" ha depositado un paquete en el Almacen --> Total: " + nGalletasDentro +"/"+ capacidad);
+                    System.out.println(obtenerFechaHoraActual()+ empaquetador.getIdEmpaquetador() +" ha depositado un paquete en el Almacen --> Total: " + nGalletasDentro +"/"+ capacidad);
                 }
             } catch (InterruptedException ie) {
                 ie.printStackTrace(); 
@@ -67,7 +73,7 @@ public class Almacen implements Serializable{
                 nGalletasDentro -= n;
                 resultado=n;
                 nGalletasComidas+=n;
-                System.out.println("Usuario come " + n + " galletas, estado del almacen --> " + nGalletasDentro + "/" + capacidad);
+                System.out.println(obtenerFechaHoraActual()+ " Usuario come " + n + " galletas, estado del almacen --> " + nGalletasDentro + "/" + capacidad);
             }
         } catch (Exception e) {
         } finally {
