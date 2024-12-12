@@ -132,3 +132,6 @@
 [2024-12-11 13:13:47]  empaquetador2 ha extraido un lote --> galletas en horno: 180
 [2024-12-11 13:13:48]  empaquetador2 ha extraido un lote --> galletas en horno: 160
 [2024-12-11 13:13:48]  empaquetador1 ha extraido un lote --> galletas en horno: 80
+[2024-12-12 19:14:31] Salida redirigida a consola y archivo: servidor_log.txt
+--------------------------------COMIENZA EL RUN-------------------------------------
+[2024-12-12 19:14:32] Servidor RMI está listo.

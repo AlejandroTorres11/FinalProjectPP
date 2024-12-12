@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Server;
 
 import java.util.Collections;
@@ -804,7 +801,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("--------------------------------COMIENZA EL RUNEO-------------------------------------");
+        System.out.println("--------------------------------COMIENZA EL RUN-------------------------------------");
         while (true) {
             try {
                 update();
