@@ -1,4 +1,5 @@
 Cliente\ClienteUI$7.class
+Common\Utility.class
 Server\Cafetera.class
 Server\Logger.class
 Cliente\ClienteUI$2.class
@@ -12,7 +13,6 @@ Cliente\ClienteUI.class
 Server\MainFrame$2.class
 Cliente\Cliente.class
 Cliente\ClienteUI$1.class
-Server\MainFrame$9.class
 Server\MainFrame$7.class
 Server\Almacen.class
 Server\MainFrame$4.class

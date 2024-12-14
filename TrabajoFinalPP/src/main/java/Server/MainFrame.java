@@ -1,16 +1,11 @@
 
 package Server;
 
-import java.util.Collections;
-import java.util.LinkedList;
+
 import java.util.List;
 import com.formdev.flatlaf.FlatLightLaf;
-import Common.InfoAlmacen;
-import Common.InfoHorno;
-import Common.InfoRepostero;
 import java.awt.Color;
 import java.awt.Image;
-import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.util.concurrent.ExecutorService;
@@ -63,7 +58,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
         Image resizedImg2 = img2.getScaledInstance(jLabel17.getWidth(), jLabel17.getHeight(), Image.SCALE_SMOOTH);
         icon2 = new ImageIcon(resizedImg2); // Asignar la imagen redimensionada
         jLabel17.setIcon(icon2); // Establecer la imagen en el segundo JLabel
-
+        
 
     }
     public void colocarImagenes(){
@@ -221,7 +216,6 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cReposterosColatxt = new javax.swing.JTextField();
         cReposteroUsandotxt = new javax.swing.JTextField();
@@ -284,13 +278,6 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
         setMaximumSize(new java.awt.Dimension(991, 765));
         setMinimumSize(new java.awt.Dimension(991, 765));
         setResizable(false);
-
-        jButton1.setText("Iniciar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Cafetera");
 
@@ -395,7 +382,6 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(almacenNGalletastxt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(comerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -626,8 +612,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nGalletasComidastxt))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addGap(41, 41, 41)))
                 .addGap(39, 39, 39))
         );
 
@@ -639,11 +624,6 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //boton iniciar
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        iniciarSistema();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void e1estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1estadoActionPerformed
         // TODO add your handling code here:
@@ -757,7 +737,6 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel h3estadotxt;
     private javax.swing.JTextField h3nGalletastxt;
     private javax.swing.JProgressBar h3progressbar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -802,6 +781,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
     @Override
     public void run() {
         System.out.println("--------------------------------COMIENZA EL RUN-------------------------------------");
+        iniciarSistema();
         while (true) {
             try {
                 update();

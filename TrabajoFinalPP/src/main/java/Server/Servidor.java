@@ -1,10 +1,10 @@
 package Server;
 
 import Common.ObjetoRemotoImpl;
+import Common.Utility;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,18 +19,14 @@ public class Servidor {
     
     public static void main(String[] args) {
         // Configurar logger para redirigir la salida
-        Logger.redirigirSalida("servidor_log.txt");
+        Logger.redirigirSalida("servidor_log.txt"); //el archivo se genera en la carpeta del proyecto, junto al pom.xml
 
         inicializarComponentes();
         iniciarVentanaPrincipal();
         iniciarRMI();
     }
     
-    private static String obtenerFechaHoraActual() {
-        LocalDateTime ahora = LocalDateTime.now();
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return "[" + ahora.format(formato) + "] ";
-    }
+    
 
     private static void inicializarComponentes() {
         for (int i = 0; i < 3; i++) {
@@ -59,9 +55,9 @@ public class Servidor {
             LocateRegistry.createRegistry(1099);
             ObjetoRemotoImpl objetoRemoto = new ObjetoRemotoImpl(listaReposteros, listaHornos, almacen);
             Naming.rebind("rmi://localhost:1099/ObjetoRMI", objetoRemoto);
-            System.out.println(obtenerFechaHoraActual() + "Servidor RMI está listo.");
+            System.out.println(Utility.obtenerFechaHoraActual() + "Servidor RMI está listo.");
         } catch (Exception e) {
-            System.err.println(obtenerFechaHoraActual() + "Error al iniciar el servidor RMI: " + e.getMessage());
+            System.err.println(Utility.obtenerFechaHoraActual() + "Error al iniciar el servidor RMI: " + e.getMessage());
             e.printStackTrace();
         }
     }

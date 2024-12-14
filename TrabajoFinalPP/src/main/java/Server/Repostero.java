@@ -1,10 +1,9 @@
 package Server;
 
+import Common.Utility;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Repostero extends Thread implements Serializable {
     private String idRepostero;
@@ -28,11 +27,7 @@ public class Repostero extends Thread implements Serializable {
         this.nGalletasGeneradasTotales = 0;
         this.nGalletasDesperdiciadasTotales = 0;
     }
-    private String obtenerFechaHoraActual() {
-        LocalDateTime ahora = LocalDateTime.now();
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return "[" + ahora.format(formato) + "] ";
-    }
+    
     public int producirTandaGalletas() throws InterruptedException {
         checkPaused(); // Verificar si el hilo está pausado
         sleep(2000 + random.nextInt(2000));
@@ -81,16 +76,16 @@ public class Repostero extends Thread implements Serializable {
                 esperaCafe = true;
                 estado = "pausa para el café";
                 cafetera.empezarCafe(this);
-                System.out.println(obtenerFechaHoraActual()+" "+idRepostero + " empieza a hacer café");
+                System.out.println(Utility.obtenerFechaHoraActual()+" "+idRepostero + " empieza a hacer café");
                 sleep(2000);
 
                 cafetera.terminarCafe();
-                System.out.println(obtenerFechaHoraActual()+" "+idRepostero + " termina de hacer café");
+                System.out.println(Utility.obtenerFechaHoraActual()+" "+idRepostero + " termina de hacer café");
                 esperaCafe = false;
                 estado = "descanso";
-                System.out.println(obtenerFechaHoraActual()+" "+idRepostero + " empieza a descansar");
+                System.out.println(Utility.obtenerFechaHoraActual()+" "+idRepostero + " empieza a descansar");
                 sleep(3000 + random.nextInt(3000));
-                System.out.println(obtenerFechaHoraActual()+" "+idRepostero + " termina de descansar");
+                System.out.println(Utility.obtenerFechaHoraActual()+" "+idRepostero + " termina de descansar");
 
             } catch (InterruptedException e) {
                 System.out.println("Hilo interrumpido: " + e.getMessage());
@@ -102,14 +97,14 @@ public class Repostero extends Thread implements Serializable {
     public synchronized void pauseThread() {
         paused = true;
         estado = "pausado";
-        System.out.println(obtenerFechaHoraActual()+ idRepostero+ " Ha sido pausado");
+        System.out.println(Utility.obtenerFechaHoraActual()+ idRepostero+ " Ha sido pausado");
     }
 
     public synchronized void resumeThread() {
         paused = false;
         estado = "activo"; // O un estado adecuado como "produciendo"
         notify(); // Notificar que el hilo puede continuar
-        System.out.println(obtenerFechaHoraActual()+ idRepostero+ " Ha sido reanudado");
+        System.out.println(Utility.obtenerFechaHoraActual()+ idRepostero+ " Ha sido reanudado");
         estado = "activo"; 
         notify(); 
     }
