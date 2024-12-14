@@ -107,14 +107,11 @@ public class Repostero extends Thread implements Serializable {
 
     public synchronized void resumeThread() {
         paused = false;
-<<<<<<< Updated upstream
         estado = "activo"; // O un estado adecuado como "produciendo"
         notify(); // Notificar que el hilo puede continuar
         System.out.println(obtenerFechaHoraActual()+ idRepostero+ " Ha sido reanudado");
-=======
         estado = "activo"; 
         notify(); 
->>>>>>> Stashed changes
     }
 
     // Método para verificar si el hilo está pausado
